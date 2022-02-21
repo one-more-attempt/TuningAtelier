@@ -15,7 +15,6 @@ console.log(checkURL(inputURL));
 
 
 
-
 //Сделайте функцию, которая принимает параметром число от 1 до 7,
 // а возвращает день недели на русском языке.
 function RusWeekDayFromNumber(inputNumber) {
@@ -88,7 +87,6 @@ console.log (arrayReduceMultiply([1,2,3,4]))
 // In DNA strings, symbols "A" and "T" are complements of each other, as "C" and "G". 
 // "ATTGC" --> "TAACG"
 // "GTAT" --> "CATA"
-console.clear();
 function DNAComplemets (inputDNA){
   const complements = {
     A: "T",
@@ -101,6 +99,8 @@ function DNAComplemets (inputDNA){
 }
 console.log (DNAComplemets ('ATTGC'))
 
+
+
 //using replace
 function DNAComplemetsUsingReplace (inputDNA){
   return inputDNA.toLowerCase().replace(/a/g, "T").replace(/t/g, "A")
@@ -108,22 +108,58 @@ function DNAComplemetsUsingReplace (inputDNA){
 }
 console.log (DNAComplemetsUsingReplace ('ATTGC'))
 
+
+
 //codewars 5
 //усреднить значения в каждом элементе 
-
 let matrix =[
   [ [123, 231, 12], [56, 43, 124] ],
   [ [78, 152, 76], [64, 132, 200] ]
  ]
-
-
-function RGB (matrix){
+ function RGB (matrix){
   return matrix.map (row => row.map(itemInRow=>
-      Array (3).fill(Math.round (itemInRow.reduce((a,b)=>a+b,0)/3))   ))
+      Array (3).fill(Math.round (itemInRow.reduce((prev,next)=>prev+next,0)/3))   ))
     }
-
 console.log (RGB(matrix))
 
-// let tmpArray = matrix.map (row => row.map(itemInRow=>
-//   Array (3).fill(Math.round (itemInRow.reduce((a,b)=>a+b,0)/3))   ))
-// console.log (tmpArray)
+
+
+//codewars
+//sum of elements using map method
+function Summ (array){
+  return array.reduce ((prev,next)=>prev+next,0)
+}
+console.log(Summ([1,2,3,4,5]))
+
+
+
+//Coding in function isolateIt. function accept 1 parameters arr, it's a string array.
+//  Your task is to put a character "|" into the middle of each element.
+const inputStringArray  =["1234","12345"];
+function AddSlashInString (input){
+return input.map ((item, index, array)=>{
+  //return item.slice(0, item.length/2)+'|'+ item.slice(-item.length/2)
+  if (item.length%2 == 1) {
+    return item.slice(0, item.length/2-0.5)+'|'+ item.slice(item.length/2+0.5)
+  }
+  else {return item.slice(0, item.length/2)+'|'+ item.slice(item.length/2)}
+})
+}
+console.log (AddSlashInString(inputStringArray))
+console.log (inputStringArray)
+
+
+
+//codewars 
+
+const testGroup = [1,2,3,4,5,6,7,8,9];
+console.log (testGroup)
+function groupArray(inputArray){
+  let resArray=[]
+  for (let index = 0; index < inputArray.length; index+=3) {
+    resArray.push(inputArray.slice(index,index+3).reduce ((prev, curr)=> prev+curr,0)) 
+  }
+  return resArray
+}
+
+console.log (groupArray(testGroup))

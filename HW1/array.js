@@ -216,6 +216,102 @@ function findBetweenOnPlace (inputArray, a,b){
 let tmpArr = inputArray.filter ((item,index,array)=>(item>=a)&&(item<=b))
 inputArray.splice (0,inputArray.length,...tmpArr)
 }
-
 console.log (findBetweenOnPlace(inputNumArr,3,5))
 console.log (inputNumArr)
+
+
+
+//----Сортировать в порядке по убыванию------------------/
+let arrsort = [ 12,6,7,15];
+function compareNumeric(a, b) {
+  if ((a > b)) return 1;
+  if (a == b) return 0;
+  if (a < b) return -1;
+}
+console.log (arrsort.sort(compareNumeric))
+
+
+
+//----Скопировать и отсортировать массив--------
+const tstArr = ["HTML", "JavaScript", "CSS"]
+function copySortedArray (inputArray){
+  let outputArray  = inputArray.slice();
+  outputArray.sort();
+  return outputArray
+}
+console.log (tstArr)
+console.log (copySortedArray(tstArr))
+
+
+
+//---преобразовать в массив имен------------------------------------
+let vasya = { name: "Вася", surname: "Пупкин", id: 1, age: 25 };
+let petya = { name: "Петя", surname: "Иванов", id: 2, age: 18};
+let masha = { name: "Маша", surname: "Петрова", id: 3, age: 39 };
+let users = [ vasya, petya, masha ];
+
+let namesArray = users.map ((item)=>item.name);
+console.log (namesArray)
+
+
+
+//-------переобразовать в объект---------------
+//Напишите код, который создаст ещё один массив объектов с параметрами id и fullName,
+// где fullName – состоит из name и surname.
+let usersArray = users.map((item)=>{ 
+  return {id: item.id, fullName: item.name+' '+item.surname , age: item.age}
+})
+console.log(usersArray);
+
+
+
+///Напишите функцию sortByAge(users), которая принимает массив объектов со
+//свойством age и сортирует их по нему.
+ function ObjectsSortByNum(inputObjectArray){
+    const compareObjectNames = (a, b) => {
+    if (a.age > b.age) return 1;
+    if (a.age == b.age) return 0;
+    if (a.age < b.age) return -1;
+  }
+  return inputObjectArray.sort (compareObjectNames)
+ }
+ console.log (ObjectsSortByNum(usersArray))
+
+
+
+ //получить средний возрасть из массива оббъектов
+function midddleAge (inputObjectArray){
+ return (inputObjectArray.reduce ((prev,curr)=>(prev+curr.age), 0)
+ /inputObjectArray.length).toFixed(1)
+};
+console.log (midddleAge(usersArray))
+
+
+
+//вернуть массив содержащий только неповторяющиеся эллементы
+let stringsArray = ["кришна", "кришна", "харе", "харе",
+  "харе", "харе", "кришна", "кришна", ":-O"
+];
+function getUniqueOnly (inputArray){
+      let tmpArr = [];
+      inputArray.forEach ((item,indx,arr)=>{
+        if (!tmpArr.includes(item,0)) {tmpArr.push(item)}})
+        return tmpArr
+}
+console.log (getUniqueOnly(stringsArray))
+
+
+
+///----дуструктуризация массивов
+console.clear();
+let dArr = ["Ilya", "Kantor", , "JSRU", "Bla-bla"]
+let [name, surname, typeofuser = 'guest', ...rest] = dArr
+console.log (name, surname, typeofuser, rest)
+
+
+
+
+
+
+//Функции, аргументы функции, передача параметров, функции-обёртки
+

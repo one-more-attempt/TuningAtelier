@@ -292,24 +292,28 @@ console.log (midddleAge(usersArray))
 let stringsArray = ["кришна", "кришна", "харе", "харе",
   "харе", "харе", "кришна", "кришна", ":-O"
 ];
+
 function getUniqueOnly (inputArray){
-      let tmpArr = [];
-      inputArray.forEach ((item,indx,arr)=>{
-        if (!tmpArr.includes(item,0)) {tmpArr.push(item)}})
-        return tmpArr
-}
+      //1st var
+      // let tmpArr = [];
+      // inputArray.forEach ((item)=>{
+      //   if (!tmpArr.includes(item,0)) {tmpArr.push(item)}})
+      //   return tmpArr
+
+    //2nd var
+    return inputArray.filter ((item,index)=>{return index === inputArray.indexOf(item)})
+  }
+//4th var
+// let outArrayFromSet = [...new Set (stringsArray)]
+// console.log (outArrayFromSet) 
 console.log (getUniqueOnly(stringsArray))
 
 
 
 ///----дуструктуризация массивов
-console.clear();
-let dArr = ["Ilya", "Kantor", , "JSRU", "Bla-bla"]
+let dArr = ["SRG", "ECHO", , "1more_attempt", "chasing_youth"]
 let [name, surname, typeofuser = 'guest', ...rest] = dArr
 console.log (name, surname, typeofuser, rest)
-
-
-
 
 
 

@@ -1,4 +1,3 @@
-'use strict'
 // Дана строка, например, '123456'. Переверните эту строку
 //  (сделайте из нее '654321') не используя цикл
 const inputString = "123456";
@@ -18,6 +17,8 @@ console.log(checkURL(inputURL));
 //Сделайте функцию, которая принимает параметром число от 1 до 7,
 // а возвращает день недели на русском языке.
 function RusWeekDayFromNumber(inputNumber) {
+// const dayOfWeek = ['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье'];
+// return dayOfWeek[inputNumber-1]
   switch (inputNumber) {
     case 1: {return "Понедельник"};
 	 case 2:{return "Вторник"};
@@ -317,5 +318,84 @@ console.log (name, surname, typeofuser, rest)
 
 
 
-//Функции, аргументы функции, передача параметров, функции-обёртки
+
+//Функции, аргументы функции, передача параметров, функции-обёрткиб замыкания
+function adressGenerator (domainName){
+  return function (adressName) {
+    return `http://${adressName}.${domainName}` }
+}
+
+const generateBYDomainName = adressGenerator('by')
+console.log (generateBYDomainName ('onliner'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+///--timer project
+console.clear();
+const block = document.querySelector(".block");
+const getSec = document.querySelector(".input-sec");
+const getMin = document.querySelector (".input-min")
+const runButton = document.querySelector(".run-button");
+const stopButton = document.querySelector(".stop-button");
+const pauseButton = document.querySelector(".pause-button")
+let total;
+// let audio = new Audio ('bell_ring.mp3')
+let bellRingAudio = new Audio ('bell_ring.mp3')
+let timer;
+
+runButton.addEventListener("click", () => {
+  clearInterval(timer)
+  //total = 0;
+  let seconds = +getSec.value;
+  let minutes = +getMin.value;
+  total = (minutes*60)+seconds;
+  //проверка
+  if ((total<=0)||(minutes>60)||(seconds>60)) {
+    block.innerHTML = 'Invalid number!';
+    return};
+
+  timer = setInterval(() => {
+         
+    if (total==0) {
+      console.log (total)
+      bellRingAudio.play();
+      clearInterval(timer);
+      block.innerHTML = 'Time out!'
+      return;
+    }
+
+    if (total>60){
+      block.innerHTML = `${Math.round ((total/60),1)}m:${total%60}s left`;
+      console.log(total);
+      --total;
+
+      }else {
+        //block.innerHTML = `${total}s left`;
+        console.log (total)
+        block.innerHTML = `${total}s left`
+        total--;     
+      }
+        
+    }, 1000);
+});
+
+//stop
+stopButton.addEventListener ("click", ()=>{
+clearInterval(timer);
+block.innerHTML = 'Stopped!'
+console.log  ('press stop')
+})
+
+
+
 

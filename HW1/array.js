@@ -320,23 +320,14 @@ console.log (name, surname, typeofuser, rest)
 
 
 //Функции, аргументы функции, передача параметров, функции-обёрткиб замыкания
+
 function adressGenerator (domainName){
   return function (adressName) {
-    return `http://${adressName}.${domainName}` }
+   return `http://${adressName}.${domainName}` }
 }
-
+//здесь замыкание входного параметра в функции!
 const generateBYDomainName = adressGenerator('by')
 console.log (generateBYDomainName ('onliner'))
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -344,26 +335,29 @@ console.log (generateBYDomainName ('onliner'))
 console.clear();
 const block = document.querySelector(".block");
 const getSec = document.querySelector(".input-sec");
-const getMin = document.querySelector (".input-min")
+const getMin = document.querySelector (".input-min");
+const getHour = document.querySelector (".input-hour")
 const runButton = document.querySelector(".run-button");
 const stopButton = document.querySelector(".stop-button");
 const pauseButton = document.querySelector(".pause-button")
-let total;
-// let audio = new Audio ('bell_ring.mp3')
-let bellRingAudio = new Audio ('bell_ring.mp3')
+const bellRingAudio = new Audio ('bell_ring.mp3')
 let timer;
+let total;
 
 runButton.addEventListener("click", () => {
+  //получение значений (или вынести в onchange html!)
   clearInterval(timer)
-  //total = 0;
   let seconds = +getSec.value;
   let minutes = +getMin.value;
-  total = (minutes*60)+seconds;
-  //проверка
+  let hours  =+getHour.value;
+  total = (hours*3600)+(minutes*60)+seconds;
+
+  //проверка неверных значений
   if ((total<=0)||(minutes>60)||(seconds>60)) {
     block.innerHTML = 'Invalid number!';
     return};
 
+  //запуск таймера
   timer = setInterval(() => {
          
     if (total==0) {
@@ -397,5 +391,24 @@ console.log  ('press stop')
 })
 
 
+//--------------------------------------------
+let testDate = new Date()//new Date (2022, 0 , 1);
+console.log (testDate)
+console.log (testDate.getTime())
+console.log(new Date().getTimezoneOffset())
+console.log((new Date()).toISOString().slice(0,10))
 
+//---------
+let dateBlock  = document.querySelector(".date-block");
+let hr;
+let min;
+let sec;
+
+let initialDate = new Date (2014,11,4, 00, 00 ,0);
+console.log(initialDate);
+min = 1;
+sec = 5;
+let timerDate  = new Date (2014,11,4,00,01,05)
+console.log (timerDate)
+console.log ((timerDate-initialDate)/1000)
 

@@ -85,7 +85,7 @@ const outputDeskBlock = document.querySelector(".desk-output");
 
 function drowChessDesk(size) {
   if (size % 2 == 0 && size > 0 && size >= 4) {
-    let symbol = "# _";
+    let symbol = "#_";
     let tmp = symbol.repeat(size / 2);
     fullLine = `${tmp.split("").join("")}<br>${tmp
       .split("")

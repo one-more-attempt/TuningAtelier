@@ -78,6 +78,14 @@ getFactorialButton.onclick = () => {
   getFactorial(factorialInputValue);
 };
 
+function factorialRecoursive(inputValue) {
+  if (inputValue <= 0) return 1;
+  else {
+    return inputValue * factorialRecoursive(inputValue - 1);
+  }
+}
+console.log(factorialRecoursive(3));
+
 //шахматная доска
 const inputDeskSize = document.querySelector(".desk-size");
 const getDeskSize = document.querySelector(".get-desk");

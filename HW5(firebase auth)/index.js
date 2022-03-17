@@ -32,7 +32,7 @@ const registerInDB = () => {
       const errorMessage = error.message;
       console.log(errorCode);
       errorCode = errorCode.split("/").slice(1).join().split("-").join(" ");
-      errorCode = errorCode.charAt(0).toUpperCase() + out.slice(1);
+      errorCode = errorCode.charAt(0).toUpperCase() + errorCode.slice(1);
       resultBlock.innerText = `Error ocured:
 		${errorCode}
 		`;

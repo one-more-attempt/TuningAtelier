@@ -123,7 +123,7 @@ const openingHours = {
 
     if (
       inputTimeNumber < currentDaySchedule.firstPartStart ||
-      inputTimeNumber > currentDaySchedule.thirdPartFinish
+      inputTimeNumber > currentDaySchedule.thirdPartFinish + 30
     ) {
       resultBlock.innerText = "Sorry, we are closed";
       return false;

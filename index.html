@@ -5,41 +5,45 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>HW2</title>
+	<title>Calculator</title>
 	<link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
-	<div class="first">
-		<span>Calculate file size in bytes:</span><br>
-		<input type="number" class="input-block" onchange="updateBlock()" placeholder=" Your file size:">
-		<select size="1" class="select-postfix" onchange="updateBlock()" placeholder="Size in bytes">
-			<option value="1" class="KB">Kb</option>
-			<option value="2" class="MB">Mb</option>
-			<option value="3" class="GB">Gb</option>
-		</select>
-		<div class="result-block"></div>
-	</div>
-	<br><br>
-	<div class="second">
-		<span>Get Factorial:</span><br>
-		<input type="number" class="factorial-input" placeholder="Your Factorial">
-		<button type="button" class="get-factorial">Get!</button>
-		<div class="factorial-output"></div>
-	</div><br><br>
-	<div class="third">
-		<span>Bubble sort:</span><br>
-		<button type="button" class="bubble-sort-button">Try it!</button>
-		<div class="input-array"></div>
-		<div class="output-array"></div>
-	</div><br><br>
-	<div class="forth">
-		<span>Chess Desk:</span><br>
-		<input type="number" class="desk-size" placeholder="Desk size:">
-		<button type="button" class="get-desk">Get!</button>
-		<div class="desk-output"></div>
-	</div>
-	<script src="/script.js"></script>
+	<div class="calc">
+		<div class="calc-screen">
+			<div class="temp">0</div>
+			<div class="result">0</div>
+		</div>
+		<div class="buttons">
+			<div class="button ac grey blue">AC</div>
+			<div class="button c grey blue">C</div>
+			<div class="button backspace grey blue">
+				<img src="/delete-left-solid.svg" alt="">
+			</div>
+			<div class="button equal grey blue">=</div>
+
+			<div class="button num seven">7</div>
+			<div class="button num eigth">8</div>
+			<div class="button num nine">9</div>
+			<div class="button multiply grey">x</div>
+
+			<div class="button num four">4</div>
+			<div class="button num five">5</div>
+			<div class="button num six">6</div>
+			<div class="button division grey ">/</div>
+
+			<div class="button num one">1</div>
+			<div class="button  num two">2</div>
+			<div class="button num three">3</div>
+			<div class="button plus grey">+</div>
+
+			<div class="button num zero">0</div>
+			<div class="button dot num">.</div>
+			<div class="button minus grey">-</div>
+
+		</div>
+		<script src="/script.js"></script>
 </body>
 
 </html>

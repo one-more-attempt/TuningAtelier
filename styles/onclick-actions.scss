@@ -1,0 +1,33 @@
+$my_yellow: #fff0b2;
+$my_yellow2_dark: #fc0;
+
+.last-works img:hover,
+.header-logo img:hover,
+.main-image-block__button:hover,
+.services:hover,
+.footer-logo img:hover,
+.logos:hover {
+  filter: brightness(80%);
+}
+
+.last-works img:active,
+.header-logo :active,
+.main-image-block__button:active,
+.services:active,
+.footer-logo img:active,
+.logos:active {
+  filter: brightness(110%);
+}
+
+.links {
+  color: white;
+  text-decoration: none;
+}
+
+.links:hover {
+  color: $my_yellow2_dark;
+}
+
+.links:active {
+  filter: brightness(80%);
+}

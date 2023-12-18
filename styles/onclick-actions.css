@@ -1,0 +1,34 @@
+.last-works img:hover,
+.header-logo img:hover,
+.main-image-block__button:hover,
+.services:hover,
+.footer-logo img:hover,
+.logos:hover {
+  -webkit-filter: brightness(80%);
+          filter: brightness(80%);
+}
+
+.last-works img:active,
+.header-logo :active,
+.main-image-block__button:active,
+.services:active,
+.footer-logo img:active,
+.logos:active {
+  -webkit-filter: brightness(110%);
+          filter: brightness(110%);
+}
+
+.links {
+  color: white;
+  text-decoration: none;
+}
+
+.links:hover {
+  color: #fc0;
+}
+
+.links:active {
+  -webkit-filter: brightness(80%);
+          filter: brightness(80%);
+}
+/*# sourceMappingURL=onclick-actions.css.map */
